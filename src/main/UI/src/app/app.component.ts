@@ -4,7 +4,7 @@ import {HttpClient, HttpResponse,HttpHeaders} from "@angular/common/http";
 import { Observable } from 'rxjs';
 import {map} from "rxjs/operators";
 
-
+import { AppService } from './app.service';
 
 
 
@@ -15,7 +15,8 @@ import {map} from "rxjs/operators";
 })
 export class AppComponent implements OnInit{
 
-  constructor(private httpClient:HttpClient){}
+  // updated 7.2.24 to include app.service.ts
+  constructor(private httpClient:HttpClient, private appService: AppService) {}
 
   private baseURL:string='http://localhost:8080';
 
@@ -27,6 +28,9 @@ export class AppComponent implements OnInit{
   request!:ReserveRoomRequest;
   currentCheckInVal!:string;
   currentCheckOutVal!:string;
+
+  // 7.2.24 new property to hold welcome messages
+  welcomeMessage: string = '';
 
     ngOnInit(){
       this.roomsearch= new FormGroup({
@@ -44,6 +48,9 @@ export class AppComponent implements OnInit{
       this.currentCheckInVal = x.checkin;
       this.currentCheckOutVal = x.checkout;
     });
+
+    // 7.2.24 fetch welcome messages when component initializes
+      this.getWelcomeMessage();
   }
 
     onSubmit({value,valid}:{value:Roomsearch,valid:boolean}){
@@ -81,6 +88,14 @@ export class AppComponent implements OnInit{
 
 
        return this.httpClient.get(this.baseURL + '/room/reservation/v1?checkin='+ this.currentCheckInVal + '&checkout='+this.currentCheckOutVal, {responseType: 'json'});
+    }
+
+    // 7.2.24 implement method to fetch welcome messages
+    getWelcomeMessage() {
+      this.appService.getWelcomeMessage().subscribe(
+        data => this.welcomeMessage = data,
+        error => console.error('Error fetching welcome messages', error)
+      );
     }
 
   }
