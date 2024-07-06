@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {HttpClient, HttpResponse,HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { Observable } from 'rxjs';
-import {map} from "rxjs/operators";
-
 import { AppService } from './app.service';
 
 
@@ -30,7 +28,7 @@ export class AppComponent implements OnInit{
   currentCheckOutVal!:string;
 
   // 7.2.24 new property to hold welcome messages
-  welcomeMessage: string = '';
+  welcomeMessage: string[] = [];
 
     ngOnInit(){
       this.roomsearch= new FormGroup({
@@ -91,10 +89,16 @@ export class AppComponent implements OnInit{
     }
 
     // 7.2.24 implement method to fetch welcome messages
+    // 7.4.24 added logging
     getWelcomeMessage() {
       this.appService.getWelcomeMessage().subscribe(
-        data => this.welcomeMessage = data,
-        error => console.error('Error fetching welcome messages', error)
+        data => {
+          console.log('Welcome msg fetched successfully', data);
+          this.welcomeMessage = data;
+        },
+        error =>  {
+          console.error('Error fetching welcome messages', error)
+        }
       );
     }
 

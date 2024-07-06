@@ -9,12 +9,12 @@ import { Observable } from 'rxjs';
 })
 export class AppService {
 
-  private baseURL: string = 'http://localhost:8080';
+  private welcomeUrl = 'http://localhost:8080/welcome-messages';
 
   constructor(private http: HttpClient) { }
 
-  getWelcomeMessage(): Observable<string> {
-    return this.http.get(this.baseURL + '/welcome-message', { responseType: 'text' });
+  getWelcomeMessage(): Observable<string[]> {
+    return this.http.get<string[]>(this.welcomeUrl);
   }
 
 }
