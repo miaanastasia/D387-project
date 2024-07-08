@@ -23,26 +23,3 @@ public class DisplayWelcome {
     }
 
 }
-
-
-
-
- //   public DisplayWelcome() { }
-
- /*   public void loadProperties(String resourceName) {
-        Resource resource = new ClassPathResource(resourceName);
-        try (InputStream stream = resource.getInputStream()) {
-            prop.load(stream);
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-
-  */
-
-
-
-
-
-
-
