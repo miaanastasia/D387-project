@@ -24,13 +24,6 @@
 <main id="wrapper">
   <div class="scene" id="welcome">
     <article class="content">
-
-      <!-- Placeholder for welcome messages
-      <div *ngIf="welcomeMessage.length">
-        <body>Welcome Messages</body>
-        <p *ngFor="let message of welcomeMessage"> {{ message }}</p>
-      </div> -->
-
       <div class="row">
         <div class=""col-12>
           <div class="gallery">
@@ -81,7 +74,9 @@
                 </td>
                 <td>
                   <strong>Room #: {{room.roomNumber}}</strong><br/>
-                  <strong>Price: ${{room.price}}</strong>
+                  <strong>Price: ${{room.price}} USD </strong><br/>
+                  <strong>Price: ${{ room.price + 10 }} CAD</strong><br/>
+                  <strong>Price: €{{ +room.price - 10}} EUR</strong><br/>
                 </td>
                 <td>
                   <button type="submit" class="btn btn-primary" (click)="reserveRoom(room.id)">Reserve</button>
