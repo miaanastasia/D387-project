@@ -3,8 +3,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {HttpClient, HttpHeaders, HttpResponse} from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { AppService } from './app.service';
-
-
+import { Location, LocationStrategy} from "@angular/common";
 
 
 @Component({
@@ -18,7 +17,7 @@ export class AppComponent implements OnInit {
   convertedTimes: string = ' ';
 
   // updated 7.2.24 to include app.service.ts
-  constructor(private httpClient: HttpClient, private appService: AppService) { }
+  constructor(private httpClient: HttpClient, private appService: AppService, private location: Location, private locationStrategy: LocationStrategy) { }
 
 
   // 7.8.24
@@ -30,7 +29,9 @@ export class AppComponent implements OnInit {
   }
 
 
-  private baseURL: string = 'http://localhost:8080';
+//  private baseURL: string = 'http://localhost:8080';
+  private baseURL: string=this.location.path();
+
   private getUrl: string = this.baseURL + '/room/reservation/v1/';
   private postUrl: string = this.baseURL + '/room/reservation/v1';
   public submitted!: boolean;
