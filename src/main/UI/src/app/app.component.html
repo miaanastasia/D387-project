@@ -12,7 +12,7 @@
   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <div class="scrollmagic-pin-spacer"
        style="display: block; top: auto; left: auto; bottom: auto; right: auto; position: relative; margin: 0 auto auto; box-sizing: content-box; width: 100%; min-height: 44px; height: auto; padding-top: 0; padding-bottom: 0;">
-    <nav id="nav" style="position: relative; top: 0; left: 0; bottom: auto; right: auto; width: 100%;">
+    <nav id="nav" style="position: relative; top: 0; left: 0; bottom: auto; right: auto; width: 100%; margin-bottom: 0;">
       <div class="navbar">
         <div class="brand"><a href="/#welcome">Landon <span>Hotel</span></a></div>
         <p class="welcome-message-white">{{ welcomeMessage[0] }}</p>
@@ -22,6 +22,11 @@
   </div>
 </header>
 <main id="wrapper">
+  <article id="timezone" style="margin-top: 0; margin-bottom: 0;">
+    <h2>Live Presentation</h2>
+    <p> {{ convertedTimes }}</p>
+    <!--<p><strong>Join us for an online live presentation </strong> held at the Landon Hotel on July 15, 2024 at {{ getConvertedTimes() }}</p> -->
+  </article>
   <div class="scene" id="welcome">
     <article class="content">
       <div class="row">

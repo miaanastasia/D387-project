@@ -19,7 +19,8 @@ import { AppService } from './app.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   // 7.2.24 included AppService
   providers: [AppService],

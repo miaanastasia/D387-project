@@ -776,6 +776,17 @@ header #nav .navbar ul li a.active {
   border-radius: 20px;
 }
 
+ #timezone {
+    background-color: rgba(26, 68, 60, 0.5);
+    margin-top: 20px;
+    border: 1px solid #FFFFFF;
+    padding: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+  }
+
+
 /* line 2, ../../../components/sass/modules/_rooms.scss */
 #rooms header {
   margin-bottom: 20px;
