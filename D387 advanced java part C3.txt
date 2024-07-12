@@ -1,0 +1,10 @@
+D387 advanced java part C3
+
+Deploying this application to the cloud
+
+
+To deploy this application to the cloud, I would use Microsoft Azure.  
+First, create a resource and choose 'Container App.' Name the resource group and container appropriately based on the application,
+in this case, the Landon Hotel app.  In the settings, uncheck 'quickstart image' and instead add the image name and tag (d387_mmit499:latest).
+Enable ingress type HTTP and accept traffic from anywhere with the target port 8080.  Create the container and the app will deploy to the cloud.
+Verify the site is live to ensure it will be accessible outside the local environment in which it was created.
